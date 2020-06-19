@@ -41,7 +41,7 @@
   </table>
 
 <!-- Registro en Alta,Modificacion o Consulta -->
-<form name='FormReg' *ngIf="AccionABMC != 'L'">
+<form name='FormReg' [formGroup]='FormReg' *ngIf="AccionABMC != 'L'" class="bg-light">
     <fieldset [disabled]="AccionABMC==='C'"> 
 
         <!--IdEmpresa-->
@@ -97,7 +97,7 @@
     </div>
 
     <!--texto: Revisar los datos ingresados...-->
-    <div id="divMsjFormRegistro" class="row alert alert-danger" *ngIf="false">
+    <div id="divMsjFormRegistro" class="row alert alert-danger" *ngIf="submitted && FormReg.invalid">
         <span class="fas fa-exclamation-sign"></span>{{Mensajes['RD']}}
     </div>
 
