@@ -23,15 +23,6 @@ export class EmpresasService {
     return this.httpClient.get(this.resourceUrl);
   }
 
-  // get(RazonSocial: string) {
-  //   let params = new HttpParams();
-  //   if (RazonSocial != null) {
-  //     params = params.append("RazonSocial", RazonSocial);
-  //   }
-
-  //   return this.httpClient.get(this.resourceUrl, { params: params });
-  // }
-
   getById(Id: number) {
     return this.httpClient.get(this.resourceUrl + Id);
   }
@@ -47,4 +38,5 @@ export class EmpresasService {
   delete(Id) {
     return this.httpClient.delete(this.resourceUrl + Id);
   }
+  
 }

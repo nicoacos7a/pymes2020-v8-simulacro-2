@@ -41,11 +41,28 @@ export class EmpresasComponent implements OnInit {
 
   ngOnInit() {
     this.Buscar()
+
     this.FormReg = this.formBuilder.group({
-    IdEmpresa: [0],
-    RazonSocial: [""],
-    FechaFundacion: [""],
-    CantidadEmpleados: [null]
+    IdEmpresa: [null],
+
+    RazonSocial: [null, [
+      Validators.required, 
+      Validators.minLength(3), 
+      Validators.maxLength(50)
+      ]],
+
+    FechaFundacion: [null, [
+      Validators.required,
+      Validators.pattern(
+        "(0[1-9]|[12][0-9]|3[01])[-/](0[1-9]|1[012])[-/](19|20)[0-9]{2}"
+        )
+      ]],
+
+    CantidadEmpleados: [null, [
+      Validators.required, 
+      Validators.minLength(1), 
+      Validators.maxLength(10000)
+      ]]
     });
   }
 
