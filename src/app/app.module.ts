@@ -42,7 +42,7 @@ import { EmpresasService } from './services/empresas.service';
       { path: 'inicio', component: InicioComponent },
       { path: 'articulos', component: ArticulosComponent },
       { path: 'articulosfamilias', component: ArticulosFamiliasComponent },
-      { path: 'empresas', component: EmpresasComponent }
+      { path: 'empresas', component: EmpresasComponent },
     ]),
     NgbPaginationModule,
     NgbModalModule
