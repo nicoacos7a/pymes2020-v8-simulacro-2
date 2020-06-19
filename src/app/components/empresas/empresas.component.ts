@@ -103,18 +103,14 @@ export class EmpresasComponent implements OnInit {
  
     // agregar post
     if (itemCopy.IdEmpresa == 0 || itemCopy.IdEmpresa == null) {
-      this.empresasService
-      .post(itemCopy)
-      .subscribe((res: any) => {
+      this.empresasService.post(itemCopy).subscribe((res: any) => {
         this.Volver();
         alert('Registro agregado correctamente.');
         this.Buscar();
       });
     } else {
       // modificar put
-      this.empresasService
-        .put(itemCopy.IdEmpresa, itemCopy)
-        .subscribe((res: any) => {
+      this.empresasService.put(itemCopy.IdEmpresa, itemCopy).subscribe((res: any) => {
           this.Volver();
           alert('Registro modificado correctamente.');
           this.Buscar();
@@ -124,6 +120,13 @@ export class EmpresasComponent implements OnInit {
 
   Volver() {
     this.AccionABMC = "L";
+  }
+
+  Eliminar(e){
+    this.empresasService.delete(e.IdEmpresa).subscribe((res: any) => {
+      alert('Registro eliminado correctamente.');
+      this.Buscar();
+    });
   }
 
 }
