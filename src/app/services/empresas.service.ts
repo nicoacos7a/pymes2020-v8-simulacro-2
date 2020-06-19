@@ -35,11 +35,11 @@ export class EmpresasService {
     return this.httpClient.get(this.resourceUrl + Id);
   }
 
-  post(obj:Empresa) {
+  post(obj: Empresa) {
     return this.httpClient.post(this.resourceUrl, obj);
   }
 
-  put(Id: number, obj:Empresa) {
+  put(Id: number, obj: Empresa) {
     return this.httpClient.put(this.resourceUrl + Id, obj);
   }
 

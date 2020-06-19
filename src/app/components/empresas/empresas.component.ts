@@ -85,7 +85,8 @@ export class EmpresasComponent implements OnInit {
 
   // Obtengo un registro especifico según el Id
   BuscarPorId(Dto, AccionABMC) {
-    window.scroll(0, 0); // ir al incio del scroll
+    // ir al inicio del scroll
+    window.scroll(0, 0);
  
     this.empresasService.getById(Dto.IdEmpresa).subscribe((res: any) => {
       // hacemos copia para no modificar el array original del mock
