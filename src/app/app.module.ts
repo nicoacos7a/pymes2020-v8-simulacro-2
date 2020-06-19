@@ -23,6 +23,8 @@ import { EmpresasComponent } from './components/empresas/empresas.component';
 import { EmpresasService } from './services/empresas.service';
 import { MockEmpresasService } from './services/mock-empresas.service';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,7 @@ import { MockEmpresasService } from './services/mock-empresas.service';
     ]),
     NgbPaginationModule,
     NgbModalModule,
+    FormsModule,
   ],
   entryComponents: [ModalDialogComponent],
   providers: [
