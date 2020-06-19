@@ -10,6 +10,7 @@ import { MockEmpresasService } from "../../services/mock-empresas.service";
 export class EmpresasComponent implements OnInit {
 
   Titulo = "Empresas";
+
   TituloAccionABMC = {
     A: "(Agregar)",
     B: "(Eliminar)",
@@ -26,8 +27,13 @@ export class EmpresasComponent implements OnInit {
   };
   
   Lista: Empresa[] = [];
+
   RegistrosTotal: number;
+
+  Empresas: Empresa[] = [];
+
   SinBusquedasRealizadas = true;
+
   Pagina = 1; // inicia pagina 1
 
   constructor(
@@ -35,14 +41,14 @@ export class EmpresasComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.GetEmpresas();
+     this.GetEmpresas();
   }
 
-  // GetFamiliasArticulos() {
-  //        this.articulosFamiliasService.get().subscribe((res: ArticuloFamilia[]) => {
-  //      this.Familias = res;
-  //    });
-  // }
+  GetEmpresas() {
+         this.empresasService.get(' ', this.Pagina).subscribe((res: Empresa[]) => {
+       this.Empresas = res;
+     });
+  }
 
   Agregar() {
     this.AccionABMC = "A";
