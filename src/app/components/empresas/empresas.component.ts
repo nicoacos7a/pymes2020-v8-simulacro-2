@@ -33,23 +33,34 @@ export class EmpresasComponent implements OnInit {
 
   RegistrosTotal: number;
 
-  Empresas: Empresa[] = [];
-
   SinBusquedasRealizadas = true;
 
   Pagina = 1; // inicia pagina 1
 
-  FormFiltro: FormGroup;
+  // FormFiltro: FormGroup;
   FormReg: FormGroup;
 
   constructor(
     // private empresasService: MockEmpresasService
-    private empresasService: EmpresasService
+    private empresasService: EmpresasService,
+
+    public formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
+
+    this.FormReg = this.formBuilder.group({
+    IdEmpresa: [null],
+    RazonSocial: [null],
+    FechaFundacion: [null],
+    CantidadEmpleados: [null]
+    });
+
      this.GetEmpresas();
   }
+
+  
+
 
   GetEmpresas() {
         //  this.empresasService.get(' ', this.Pagina).subscribe((res: Empresa[]) => {
