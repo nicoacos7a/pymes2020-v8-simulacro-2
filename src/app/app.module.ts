@@ -4,6 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF} from '@angular/common';  
 import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MyInterceptor } from "./shared/my-interceptor";
@@ -21,9 +22,6 @@ import { ArticulosFamiliasComponent } from "./components/articulos-familias/arti
 import { ModalDialogComponent } from "./components/modal-dialog/modal-dialog.component";
 import { EmpresasComponent } from './components/empresas/empresas.component';
 import { EmpresasService } from './services/empresas.service';
-import { MockEmpresasService } from './services/mock-empresas.service';
-
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
