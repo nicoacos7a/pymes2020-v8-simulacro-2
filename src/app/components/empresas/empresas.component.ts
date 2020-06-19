@@ -49,7 +49,7 @@ export class EmpresasComponent implements OnInit {
   GetEmpresas() {
         //  this.empresasService.get(' ', this.Pagina).subscribe((res: Empresa[]) => {
        this.empresasService.get().subscribe((res: Empresa[]) => {
-       this.Empresas = res;
+       this.Lista = res;
      });
   }
 
