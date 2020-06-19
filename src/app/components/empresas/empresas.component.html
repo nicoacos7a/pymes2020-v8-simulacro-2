@@ -2,12 +2,14 @@
 
 <br>
 
-<div id="divTablaResultados" *ngIf="AccionABMC == 'L' && Lista?.length > 0">
-  
+<div class="row-justify-content-center m-3" *ngIf="$AccionABMC == 'L' ">
   <button type="button" class="btn btn-primary" (click)="Agregar()">
       <span class="fas fa-plus"> </span> 
       Agregar
     </button>
+</div>
+
+<div id="divTablaResultados" *ngIf="AccionABMC == 'L' && Lista?.length > 0">
   
   <table class="table table-bordered table-striped">
     <thead>
@@ -29,17 +31,17 @@
           <td class="text-center text-nowrap">
             <button type="button" class="btn btn-sm btn-outline-primary" title="Consultar" (click)="Consultar(emp)">
               <span class="fas fa-eye"></span>
-              </button>
+            </button>
             <button type="button" class="btn btn-sm btn-outline-primary" title="Modificar" (click)="Modificar(emp)">
               <span class="fas fa-pencil-alt"></span>
-              </button>
+            </button>
             <button type="button" class="btn btn-sm btn-outline-danger" title="Eliminar" (click)="Eliminar(emp)">
               <span class="fas fa-times"></span>
             </button>
-            </td>
-          </tr>
-        </tbody>
-    </table>
+          </td>
+        </tr>
+      </tbody>
+  </table>
 
 <!-- Registro en Alta,Modificacion o Consulta -->
 <form name='FormReg' *ngIf="AccionABMC != 'L'">
