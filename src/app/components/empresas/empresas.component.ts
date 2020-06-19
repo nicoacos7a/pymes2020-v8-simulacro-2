@@ -50,7 +50,7 @@ export class EmpresasComponent implements OnInit {
 
   // Buscar segun los filtros, establecidos en FormReg
   Buscar() {
-     this.empresasService.get('', this.Pagina).subscribe((res: any) => {
+     this.empresasService.get(' ', this.Pagina).subscribe((res: any) => {
         this.Lista = res.Lista;
         this.RegistrosTotal = res.RegistrosTotal;
       });
@@ -69,10 +69,6 @@ export class EmpresasComponent implements OnInit {
 
   // comienza la modificacion, luego la confirma con el metodo Grabar
   Modificar(Dto) {
-    if (!Dto.Activo) {
-      alert("No puede modificarse un registro Inactivo.");
-      return;
-    }
     this.BuscarPorId(Dto, "M");
   }
 
