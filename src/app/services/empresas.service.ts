@@ -22,10 +22,10 @@ export class EmpresasService {
   //   return this.httpClient.get(this.resourceUrl);
   // }
 
-  get(Nombre: string) {
+  get(RazonSocial: string) {
     let params = new HttpParams();
-    if (Nombre != null) {
-      params = params.append("Nombre", Nombre);
+    if (RazonSocial != null) {
+      params = params.append("RazonSocial", Nombre);
     }
 
     return this.httpClient.get(this.resourceUrl, { params: params });
