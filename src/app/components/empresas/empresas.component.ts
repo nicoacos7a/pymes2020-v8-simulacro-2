@@ -63,6 +63,8 @@ export class EmpresasComponent implements OnInit {
   Agregar() {
     this.AccionABMC = "A";
     this.FormReg.reset(this.FormReg.value);
+    this.submitted = false;
+    this.FormReg.markAsUntouched();
   }
 
   Buscar() {
@@ -95,6 +97,9 @@ export class EmpresasComponent implements OnInit {
   }
 
   Modificar(emp) {
+    this.submitted = false;
+    this.FormReg.markAsPristine();
+    this.FormReg.markAsUntouched();
     this.BuscarPorId(emp, "M");
   }
 
