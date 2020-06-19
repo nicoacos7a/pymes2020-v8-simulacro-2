@@ -1,13 +1,13 @@
 <h3 class="text-center">{{Titulo}} <small>{{TituloAccionABMC[AccionABMC]}}</small></h3>
 
-<div class="row-justify-content-center m-3" *ngIf="AccionABMC == 'L' ">
+<div class="row-justify-content-center m-3" *ngIf="AccionABMC == 'L'">
   <button type="button" class="btn btn-primary" (click)="Agregar()">
       <span class="fas fa-plus"> </span> 
       Agregar
     </button>
 </div>
 
-<div id="divTablaResultados" *ngIf="AccionABMC == 'L' && Lista?.length > 0">
+<div id="divTablaResultados" *ngIf="AccionABMC == 'L'">
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
