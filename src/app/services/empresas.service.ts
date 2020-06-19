@@ -25,7 +25,7 @@ export class EmpresasService {
   get(RazonSocial: string) {
     let params = new HttpParams();
     if (RazonSocial != null) {
-      params = params.append("RazonSocial", Nombre);
+      params = params.append("RazonSocial", RazonSocial);
     }
 
     return this.httpClient.get(this.resourceUrl, { params: params });
