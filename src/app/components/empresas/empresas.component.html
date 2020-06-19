@@ -26,14 +26,14 @@
           <td class="text-center">{{emp.FechaFundacion | date:'dd/MM/yyyy'}}</td>
           <td class="text-center">{{emp.CantidadEmpleados}}</td>
           <td class="text-center text-nowrap">
-            <button type="button" class="btn btn-sm btn-outline-primary" title="Consultar" (click)="Consultar(emp)">
-              <span class="fas fa-eye"></span>
+            <button type="button" class="btn btn-sm btn-outline-primary" title="Ver" (click)="Consultar(emp)">
+              <span class="fas fa-search"></span>
             </button>
             <button type="button" class="btn btn-sm btn-outline-primary" title="Modificar" (click)="Modificar(emp)">
               <span class="fas fa-pencil-alt"></span>
             </button>
             <button type="button" class="btn btn-sm btn-outline-danger" title="Eliminar" (click)="Eliminar(emp)">
-              <span class="fas fa-times"></span>
+              <span class="fas fa-trash"></span>
             </button>
           </td>
         </tr>
