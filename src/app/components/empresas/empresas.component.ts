@@ -91,7 +91,7 @@ export class EmpresasComponent implements OnInit {
       // hacemos copia para no modificar el array original del mock
       const itemCopy = { ...res }; 
 
-      //formatear fecha de  ISO 8061 a string dd/MM/yyyy
+      //formatear fecha de ISO 8061 a string dd/MM/yyyy
       var arrFecha = itemCopy.FechaFundacion.substr(0, 10).split("-");
       itemCopy.FechaFundacion = arrFecha[2] + "/" + arrFecha[1] + "/" + arrFecha[0];
 
