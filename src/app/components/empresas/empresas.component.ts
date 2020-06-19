@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from "../../models/empresa";
 import { MockEmpresasService } from "../../services/mock-empresas.service";
+import { EmpresasService } from "../../services/empresas.service";
 
 @Component({
   selector: 'app-empresas',
@@ -37,7 +38,8 @@ export class EmpresasComponent implements OnInit {
   Pagina = 1; // inicia pagina 1
 
   constructor(
-    private empresasService: MockEmpresasService
+    // private empresasService: MockEmpresasService
+    private empresasService: EmpresasService
   ) {}
 
   ngOnInit() {
@@ -45,48 +47,49 @@ export class EmpresasComponent implements OnInit {
   }
 
   GetEmpresas() {
-         this.empresasService.get(' ', this.Pagina).subscribe((res: Empresa[]) => {
+        //  this.empresasService.get(' ', this.Pagina).subscribe((res: Empresa[]) => {
+       this.empresasService.get().subscribe((res: Empresa[]) => {
        this.Empresas = res;
      });
   }
 
-  Agregar() {
-    this.AccionABMC = "A";
-  }
+  // Agregar() {
+  //   this.AccionABMC = "A";
+  // }
 
-  // Buscar segun los filtros, establecidos en FormReg
-  Buscar() {
-     this.empresasService.get(' ', this.Pagina).subscribe((res: any) => {
-        this.Lista = res.Lista;
-        this.RegistrosTotal = res.RegistrosTotal;
-      });
-     this.SinBusquedasRealizadas = false;
-  }
+  // // Buscar segun los filtros, establecidos en FormReg
+  // Buscar() {
+  //    this.empresasService.get(' ', this.Pagina).subscribe((res: any) => {
+  //       this.Lista = res.Lista;
+  //       this.RegistrosTotal = res.RegistrosTotal;
+  //     });
+  //    this.SinBusquedasRealizadas = false;
+  // }
 
-  // Obtengo un registro especifico según el Id
-  BuscarPorId(Dto, AccionABMC) {
-    window.scroll(0, 0); // ir al incio del scroll
-    this.AccionABMC = AccionABMC;
-  }
+  // // Obtengo un registro especifico según el Id
+  // BuscarPorId(Dto, AccionABMC) {
+  //   window.scroll(0, 0); // ir al incio del scroll
+  //   this.AccionABMC = AccionABMC;
+  // }
 
-  Consultar(Dto) {
-    this.BuscarPorId(Dto, "C");
-  }
+  // Consultar(Dto) {
+  //   this.BuscarPorId(Dto, "C");
+  // }
 
-  // comienza la modificacion, luego la confirma con el metodo Grabar
-  Modificar(Dto) {
-    this.BuscarPorId(Dto, "M");
-  }
+  // // comienza la modificacion, luego la confirma con el metodo Grabar
+  // Modificar(Dto) {
+  //   this.BuscarPorId(Dto, "M");
+  // }
 
-  // grabar tanto altas como modificaciones
-  Grabar() {
-    alert("Registro Grabado!");
-    this.Volver();
-  }
+  // // grabar tanto altas como modificaciones
+  // Grabar() {
+  //   alert("Registro Grabado!");
+  //   this.Volver();
+  // }
 
-  // Volver desde Agregar/Modificar
-  Volver() {
-    this.AccionABMC = "L";
-  }
+  // // Volver desde Agregar/Modificar
+  // Volver() {
+  //   this.AccionABMC = "L";
+  // }
 
 }
