@@ -11,7 +11,6 @@ import { FormBuilder, FormGroup, Validators, FormsModule } from "@angular/forms"
 export class EmpresasComponent implements OnInit {
 
   Titulo = "Empresas";
-
   TituloAccionABMC = {
     A: "(Agregar)",
     B: "(Eliminar)",
@@ -19,20 +18,15 @@ export class EmpresasComponent implements OnInit {
     C: "(Consultar)",
     L: "(Listado)"
   };
-
   AccionABMC = "L"; // inicialmente inicia en el listado de articulos (buscar con parametros)
-
   Mensajes = {
     SD: " No se encontraron registros...",
     RD: " Revisar los datos ingresados..."
   };
-  
   Lista: Empresa[] = [];
-
   SinBusquedasRealizadas = true;
-
-  // FormFiltro: FormGroup;
   FormReg: FormGroup;
+  submitted = false;
 
   constructor(
     private empresasService: EmpresasService,
