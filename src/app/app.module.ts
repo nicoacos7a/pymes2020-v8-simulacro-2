@@ -53,7 +53,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [ModalDialogComponent],
   providers: [
      {provide: APP_BASE_HREF, useValue : '/' },
-    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true, providers: [EmpresasService], providers: [MockEmpresasService] }
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true}, [EmpresasService]
   ],
   bootstrap: [AppComponent]
 })

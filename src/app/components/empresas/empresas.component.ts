@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from "../../models/empresa";
-import { MockEmpresasService } from "../../services/mock-empresas.service";
 import { EmpresasService } from "../../services/empresas.service";
-
 import { FormBuilder, FormGroup, Validators, FormsModule } from "@angular/forms";
 
 @Component({
@@ -31,64 +29,44 @@ export class EmpresasComponent implements OnInit {
   
   Lista: Empresa[] = [];
 
-  RegistrosTotal: number;
-
   SinBusquedasRealizadas = true;
-
-  Pagina = 1; // inicia pagina 1
 
   // FormFiltro: FormGroup;
   FormReg: FormGroup;
 
   constructor(
-    // private empresasService: MockEmpresasService
     private empresasService: EmpresasService,
-
     public formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
-
+    this.Buscar()
     this.FormReg = this.formBuilder.group({
-    IdEmpresa: [null],
-    RazonSocial: [null],
-    FechaFundacion: [null],
+    IdEmpresa: [0],
+    RazonSocial: [""],
+    FechaFundacion: [""],
     CantidadEmpleados: [null]
     });
-
-     this.GetEmpresas();
-  }
-
-  GetEmpresas() {
-        //  this.empresasService.get(' ', this.Pagina).subscribe((res: Empresa[]) => {
-       this.empresasService.get(' ').subscribe((res: Empresa[]) => {
-       this.Lista = res;
-     });
   }
 
   Agregar() {
     this.AccionABMC = "A";
-    // this.FormReg.reset({Activo: true});
-    this.FormReg.reset();
+    this.FormReg.reset(this.FormReg.value);
   }
 
-  // Buscar segun los filtros, establecidos en FormReg
-  // Buscar() {
-  //   this.empresasService
-  //     .get(' ')
-  //     .subscribe((res: any) => {
-  //       this.Lista = res.Lista;
-  //       this.RegistrosTotal = res.RegistrosTotal;
-  //     });
-  //   this.SinBusquedasRealizadas = false;
-  // }
+  Buscar() {
+    this.SinBusquedasRealizadas = false;
+    this.empresasService
+      .get()
+      .subscribe((res: Empresa[]) => {
+        this.Lista = res;
+      });
+  }
 
-  // Obtengo un registro especifico según el Id
-  BuscarPorId(Dto, AccionABMC) {
-    // ir al inicio del scroll
+  BuscarPorId(emp, AccionABMC) {
     window.scroll(0, 0);
  
-    this.empresasService.getById(Dto.IdEmpresa).subscribe((res: any) => {
+    this.empresasService.getById(emp.IdEmpresa).subscribe((res: any) => {
       // hacemos copia para no modificar el array original del mock
       const itemCopy = { ...res }; 
 
@@ -101,16 +79,14 @@ export class EmpresasComponent implements OnInit {
     });
   }
 
-  Consultar(Dto) {
-    this.BuscarPorId(Dto, "C");
+  Consultar(emp) {
+    this.BuscarPorId(emp, "C");
   }
 
-  // comienza la modificacion, luego la confirma con el metodo Grabar
-  Modificar(Dto) {
-    this.BuscarPorId(Dto, "M");
+  Modificar(emp) {
+    this.BuscarPorId(emp, "M");
   }
 
-  // grabar tanto altas como modificaciones
   Grabar() {
     //hacemos una copia de los datos del formulario, para modificar la fecha y luego enviarlo al servidor
     const itemCopy = { ...this.FormReg.value };
@@ -127,10 +103,12 @@ export class EmpresasComponent implements OnInit {
  
     // agregar post
     if (itemCopy.IdEmpresa == 0 || itemCopy.IdEmpresa == null) {
-      this.empresasService.post(itemCopy).subscribe((res: any) => {
+      this.empresasService
+      .post(itemCopy)
+      .subscribe((res: any) => {
         this.Volver();
         alert('Registro agregado correctamente.');
-        //this.Buscar();
+        this.Buscar();
       });
     } else {
       // modificar put
@@ -139,12 +117,11 @@ export class EmpresasComponent implements OnInit {
         .subscribe((res: any) => {
           this.Volver();
           alert('Registro modificado correctamente.');
-          //this.Buscar();
+          this.Buscar();
         });
     }
   }
 
-  // Volver desde Agregar/Modificar
   Volver() {
     this.AccionABMC = "L";
   }

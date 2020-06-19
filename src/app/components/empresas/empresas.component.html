@@ -15,16 +15,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let dto of Lista">
-                <td class="text-center">{{dto.IdEmpresa}}</td>
-                <td class="text-center">{{dto.RazonSocial | uppercase}}</td>
-                <td class="text-center">{{dto.FechaFundacion | date:'dd/MM/yyyy'}}</td>
-                <td class="text-center">{{dto.CantidadEmpleados}}</td>
+            <tr *ngFor="let emp of Lista">
+                <td class="text-center">{{emp.IdEmpresa}}</td>
+                <td class="text-center">{{emp.RazonSocial | uppercase}}</td>
+                <td class="text-center">{{emp.FechaFundacion | date:'dd/MM/yyyy'}}</td>
+                <td class="text-center">{{emp.CantidadEmpleados}}</td>
                 <td class="text-center text-nowrap">
-                    <button type="button" class="btn btn-sm btn-outline-primary" title="Consultar" (click)="Consultar(dto)">
+                    <button type="button" class="btn btn-sm btn-outline-primary" title="Consultar" (click)="Consultar(emp)">
                         <span class="fas fa-eye"></span>
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-primary" title="Modificar" (click)="Modificar(dto)">
+                    <button type="button" class="btn btn-sm btn-outline-primary" title="Modificar" (click)="Modificar(emp)">
                         <span class="fas fa-pencil-alt"></span>
                     </button>
                 </td>
