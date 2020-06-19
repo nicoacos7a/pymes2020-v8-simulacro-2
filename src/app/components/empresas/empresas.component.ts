@@ -100,7 +100,6 @@ export class EmpresasComponent implements OnInit {
     });
   }
 
-
   Consultar(Dto) {
     this.BuscarPorId(Dto, "C");
   }
