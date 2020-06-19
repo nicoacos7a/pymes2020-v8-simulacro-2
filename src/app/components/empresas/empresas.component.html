@@ -1,0 +1,107 @@
+<div id="divTablaResultados" class="col-sm-12">
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">ID Empresa</th>
+                <th class="text-center">Razon Social</th>
+                <th class="text-center">Fecha Fundacion</th>
+                <th class="text-center">Cantidad Empleados</th>
+                <th class="text-center text-nowrap">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dto of Lista">
+                <td>{{dto.IdEmpresa}}</td>
+                <td class="text-right">{{dto.RazonSocial | uppercase}}</td>
+                <td class="text-right">{{dto.FechaFundacion | date:'dd/MM/yyyy'}}</td>
+                <td>{{dto.CantidadEmpleados}}</td>
+                <td class="text-center text-nowrap">
+                    <button type="button" class="btn btn-sm btn-outline-primary" title="Ver" (click)="Consultar(dto)">
+                        <span class="fas fa-eye"></span>
+                    </button>
+                    <button type="button" class="btn btn-sm btn-outline-primary" title="Modificar" (click)="Modificar(dto)">
+                        <span class="fas fa-pencil-alt"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Paginador-->
+    <div id="divPaginador" class="col-sm-12">
+        <div class="row bg-light">
+            <div class="col-sm-3">
+                <span class="label label-default font-weight-bold">Registros: {{RegistrosTotal}}</span>
+            </div>
+            <div class="col-sm-6 text-center">
+                Directiva paginador aqui
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Registro en Alta,Modificacion o Consulta -->
+<form name='FormReg' >
+
+    <fieldset>
+
+      <!--campo IdEmpresa-->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 col-sm-offset-2" for="IdEmpresa">
+                IdEmpresa <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text" name="IdEmpresa" class="form-control" />
+            </div>
+        </div>
+
+        <!--campo RazonSocial-->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 col-sm-offset-2" for="RazonSocial">
+                RazonSocial <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+
+        <!--campo FechaFundacion-->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 col-sm-offset-2">
+                FechaFundacion <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input class="form-control"
+                       name="FechaFundacion" />
+            </div>
+        </div>
+
+       <!--campo CantidadEmpleados-->
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 col-sm-offset-2" for="CantidadEmpleados">
+                CantidadEmpleados <span class="text-danger">*</span>
+            </label>
+            <div class="col-sm-6">
+                <input type="text" name="CantidadEmpleados" class="form-control" />
+            </div>
+        </div>
+    </fieldset>
+
+    <!-- Botones Grabar, Cancelar/Volver' -->
+    <div class="row justify-content-center">
+        <button type="button" class="btn btn-primary" (click)="Grabar()">
+            <span class="fas fa-check"></span> Grabar
+        </button>
+        &nbsp;
+        <button type="button" class="btn btn-warning" (click)="Volver()">
+            <span class="fas fa-undo"></span> Volver/Cancelar
+        </button>
+    </div>
+
+    <!--texto: Revisar los datos ingresados...-->
+    <div id="divMsjFormRegistro" class="row alert alert-danger">
+        <span class="fas fa-exclamation-sign"></span>{{Mensajes['RD']}}
+    </div>
+
+</form>
