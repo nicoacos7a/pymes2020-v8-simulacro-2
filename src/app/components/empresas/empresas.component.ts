@@ -77,17 +77,17 @@ export class EmpresasComponent implements OnInit {
   }
 
   BuscarPorId(emp, AccionABMC) {
-    window.scroll(0, 0);
- 
+    window.scroll(0, 0); // ir al incio del scroll
+
     this.empresasService.getById(emp.IdEmpresa).subscribe((res: any) => {
-      // hacemos copia para no modificar el array original del mock
-      const itemCopy = { ...res }; 
+      this.FormReg.patchValue(res);
 
-      //formatear fecha de ISO 8061 a string dd/MM/yyyy
-      var arrFecha = itemCopy.FechaFundacion.substr(0, 10).split("-");
-      itemCopy.FechaFundacion = arrFecha[2] + "/" + arrFecha[1] + "/" + arrFecha[0];
+      //formatear fecha de  ISO 8061 a string dd/MM/yyyy
+      // var arrFecha = res.FechaFundacion.substr(0, 10).split("-");
+      // this.FormReg.controls.FechaFundacion.patchValue(
+      //   arrFecha[2] + "/" + arrFecha[1] + "/" + arrFecha[0]
+      // );
 
-      this.FormReg.patchValue(itemCopy);
       this.AccionABMC = AccionABMC;
     });
   }
