@@ -83,10 +83,10 @@ export class EmpresasComponent implements OnInit {
       this.FormReg.patchValue(res);
 
       //formatear fecha de  ISO 8061 a string dd/MM/yyyy
-      // var arrFecha = res.FechaFundacion.substr(0, 10).split("-");
-      // this.FormReg.controls.FechaFundacion.patchValue(
-      //   arrFecha[2] + "/" + arrFecha[1] + "/" + arrFecha[0]
-      // );
+      var arrFecha = res.FechaFundacion.substr(0, 10).split("-");
+      this.FormReg.controls.FechaFundacion.patchValue(
+        arrFecha[2] + "/" + arrFecha[1] + "/" + arrFecha[0]
+      );
 
       this.AccionABMC = AccionABMC;
     });
