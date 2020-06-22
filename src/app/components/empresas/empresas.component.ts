@@ -68,7 +68,9 @@ export class EmpresasComponent implements OnInit {
 
   Buscar() {
     this.SinBusquedasRealizadas = false;
-    this.empresasService.get().subscribe((res: Empresa[]) => {
+    this.empresasService
+    .get()
+    .subscribe((res: Empresa[]) => {
       this.Lista = res;
     });
   }
@@ -76,7 +78,9 @@ export class EmpresasComponent implements OnInit {
   BuscarPorId(emp, AccionABMC) {
     window.scroll(0, 0);
 
-    this.empresasService.getById(emp.IdEmpresa).subscribe((res: any) => {
+    this.empresasService
+    .getById(emp.IdEmpresa)
+    .subscribe((res: any) => {
       this.FormReg.patchValue(res);
 
       //formatear fecha de  ISO 8061 a string dd/MM/yyyy
