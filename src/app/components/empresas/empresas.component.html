@@ -48,14 +48,14 @@
 	<fieldset [disabled]="AccionABMC==='C'">
     
     <!--IdEmpresa-->
-    <div class="form-group row">
+    <!-- <div class="form-group row">
       <label class="col-form-label col-sm-2 col-sm-offset-2" for="IdEmpresa">
         IdEmpresa <span class="text-danger">*</span>
       </label>
       <div class="col-sm-6">
         <input type="text" name="IdEmpresa" class="form-control" formControlName="IdEmpresa"/>
         </div>
-    </div>
+    </div> -->
 
     <!--RazonSocial-->
     <div class="form-group row">
@@ -111,7 +111,7 @@
         </span>
 				<span class="text-danger" *ngIf="(FormReg.controls.Stock.touched || submitted) 
           && FormReg.controls.Stock.errors?.pattern">
-            Dato numérico, 1 a  dígitos.
+            Dato numérico, 1 a 10 dígitos.
         </span>
       </div>
     </div>
