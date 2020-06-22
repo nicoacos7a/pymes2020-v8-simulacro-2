@@ -69,11 +69,9 @@ export class EmpresasComponent implements OnInit {
 
   Buscar() {
     this.SinBusquedasRealizadas = false;
-    this.empresasService
-      .get()
-      .subscribe((res: Empresa[]) => {
-        this.Lista = res;
-      });
+    this.empresasService.get().subscribe((res: Empresa[]) => {
+      this.Lista = res;
+    });
   }
 
   BuscarPorId(emp, AccionABMC) {
@@ -104,6 +102,12 @@ export class EmpresasComponent implements OnInit {
   }
 
   Grabar() {
+    this.submitted = true;
+
+    if (this.FormReg.invalid) {
+      return;
+    }
+
     //hacemos una copia de los datos del formulario, para modificar la fecha y luego enviarlo al servidor
     const itemCopy = { ...this.FormReg.value };
  
