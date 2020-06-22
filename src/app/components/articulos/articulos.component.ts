@@ -177,9 +177,7 @@ export class ArticulosComponent implements OnInit {
       });
     } else {
       // modificar put
-      this.articulosService
-        .put(itemCopy.IdArticulo, itemCopy)
-        .subscribe((res: any) => {
+      this.articulosService.put(itemCopy.IdArticulo, itemCopy).subscribe((res: any) => {
           this.Volver();
           this.modalDialogService.Alert('Registro modificado correctamente.');
           this.Buscar();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Empresa } from "../../models/empresa";
 import { EmpresasService } from "../../services/empresas.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ModalDialogService } from "../../services/modal-dialog.service";
 
 @Component({
   selector: 'app-empresas',
@@ -30,7 +31,8 @@ export class EmpresasComponent implements OnInit {
 
   constructor(
     private empresasService: EmpresasService,
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,
+    private modalDialogService: ModalDialogService
   ) {}
 
   ngOnInit() {
@@ -47,9 +49,7 @@ export class EmpresasComponent implements OnInit {
 
     FechaFundacion: [null, [
       Validators.required,
-      Validators.pattern(
-        "(0[1-9]|[12][0-9]|3[01])[-/](0[1-9]|1[012])[-/](19|20)[0-9]{2}"
-        )
+      Validators.pattern("(0[1-9]|[12][0-9]|3[01])[-/](0[1-9]|1[012])[-/](19|20)[0-9]{2}")
       ]],
 
     CantidadEmpleados: [null, [
@@ -125,14 +125,14 @@ export class EmpresasComponent implements OnInit {
     if (itemCopy.IdEmpresa == 0 || itemCopy.IdEmpresa == null) {
       this.empresasService.post(itemCopy).subscribe((res: any) => {
         this.Volver();
-        alert('Registro agregado correctamente.');
+        this.modalDialogService.Alert('Registro agregado correctamente.');
         this.Buscar();
       });
     } else {
       // modificar put
       this.empresasService.put(itemCopy.IdEmpresa, itemCopy).subscribe((res: any) => {
           this.Volver();
-          alert('Registro modificado correctamente.');
+          this.modalDialogService.Alert('Registro modificado correctamente.');
           this.Buscar();
         });
     }
@@ -143,9 +143,16 @@ export class EmpresasComponent implements OnInit {
   }
 
   Eliminar(e){
-    this.empresasService.delete(e.IdEmpresa).subscribe((res: any) => {
-      alert('Registro eliminado correctamente.');
-      this.Buscar();
-    });
+    this.modalDialogService.Confirm(
+      "Esta seguro de eliminar esta empresa?",
+      undefined,
+      undefined,
+      undefined,
+      () =>
+        this.empresasService.delete(e.IdEmpresa).subscribe((res: any) => 
+            this.Buscar()
+          ),
+      null
+    );
   }
 }
