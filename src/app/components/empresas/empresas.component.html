@@ -80,10 +80,21 @@
     <!--FechaFundacion-->
     <div class="form-group row">
       <label class="col-form-label col-sm-2 col-sm-offset-2">
-        FechaFundacion <span class="text-danger">*</span>
+        FechaFundacion 
+        <span class="text-danger">*</span>
       </label>
       <div class="col-sm-6">
-        <input class="form-control" name="FechaFundacion" formControlName="FechaFundacion"/>
+        <input class="form-control" name="FechaFundacion" formControlName="FechaFundacion" [ngClass]="{'is-invalid': (FormReg.controls.FechaFundacion.touched || submitted)  
+          && FormReg.controls.FechaFundacion.errors}" />
+
+				<span class="text-danger" *ngIf="(FormReg.controls.FechaFundacion.touched || submitted) 
+          && FormReg.controls.FechaFundacion.errors?.required">
+            Dato requerido.
+        </span>
+				<span class="text-danger" *ngIf="(FormReg.controls.FechaFundacion.touched || submitted) 
+          && FormReg.controls.FechaFundacion.errors?.pattern">
+            Dato fecha, formato dd/mm/aaaa.
+        </span>/>
       </div>
     </div>
 

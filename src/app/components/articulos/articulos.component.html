@@ -202,21 +202,20 @@
 
 		<!--campo fechaalta-->
 		<div class="form-group row">
-			<label class="col-form-label col-sm-2 col-sm-offset-2">Fecha de alta <span
-                    class="text-danger">*</span></label>
+			<label class="col-form-label col-sm-2 col-sm-offset-2">
+        Fecha de alta 
+        <span class="text-danger">*</span></label>
 			<div class="col-sm-6">
-				<input class="form-control"
-                           name="FechaAlta" formControlName="FechaAlta"
-                           [ngClass]="{'is-invalid': (FormReg.controls.FechaAlta.touched || submitted)  
-            && FormReg.controls.FechaAlta.errors}" />
+				<input class="form-control" name="FechaAlta" formControlName="FechaAlta" [ngClass]="{'is-invalid': (FormReg.controls.FechaAlta.touched || submitted)  
+          && FormReg.controls.FechaAlta.errors}" />
 
 				<span class="text-danger" *ngIf="(FormReg.controls.FechaAlta.touched || submitted) 
-                       && FormReg.controls.FechaAlta.errors?.required">
-                    Dato requerido.
-                </span>
+          && FormReg.controls.FechaAlta.errors?.required">
+            Dato requerido.
+        </span>
 				<span class="text-danger" *ngIf="(FormReg.controls.FechaAlta.touched || submitted) 
-                       && FormReg.controls.FechaAlta.errors?.pattern">
-                    Dato fecha, formato dd/mm/aaaa.
+          && FormReg.controls.FechaAlta.errors?.pattern">
+            Dato fecha, formato dd/mm/aaaa.
         </span>
 			</div>
 		</div>
