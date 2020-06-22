@@ -103,13 +103,13 @@
         CantidadEmpleados <span class="text-danger">*</span>
       </label>
       <div class="col-sm-6">
-        <input type="text" name="CantidadEmpleados" class="form-control" formControlName="CantidadEmpleados" [ngClass]="{'is-invalid': (FormReg.controls.Stock.touched || submitted)  
-          && FormReg.controls.Stock.errors}" />
-				<span class="text-danger" *ngIf="(FormReg.controls.Stock.touched || submitted) 
-          && FormReg.controls.Stock.errors?.required">
+        <input type="text" name="CantidadEmpleados" class="form-control" formControlName="CantidadEmpleados" [ngClass]="{'is-invalid': (FormReg.controls.CantidadEmpleados.touched || submitted)  
+          && FormReg.controls.CantidadEmpleados.errors}" />
+				<span class="text-danger" *ngIf="(FormReg.controls.CantidadEmpleados.touched || submitted) 
+          && FormReg.controls.CantidadEmpleados.errors?.required">
             Dato requerido.
         </span>
-				<span class="text-danger" *ngIf="(FormReg.controls.Stock.touched || submitted) 
+				<span class="text-danger" *ngIf="(FormReg.controls.CantidadEmpleados.touched || submitted) 
           && FormReg.controls.Stock.errors?.pattern">
             Dato numérico, 1 a 10 dígitos.
         </span>
