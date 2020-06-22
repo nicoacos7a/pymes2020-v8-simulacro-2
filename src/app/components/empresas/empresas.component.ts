@@ -150,9 +150,6 @@ export class EmpresasComponent implements OnInit {
       undefined,
       () =>
         this.empresasService.delete(e.IdEmpresa).subscribe((res: any) => 
-            this.Buscar()
-          ),
-      null
-    );
+            this.Buscar()), null);
   }
 }
