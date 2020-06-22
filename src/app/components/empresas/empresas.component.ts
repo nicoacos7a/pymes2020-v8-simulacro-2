@@ -54,8 +54,7 @@ export class EmpresasComponent implements OnInit {
 
     CantidadEmpleados: [null, [
       Validators.required, 
-      Validators.minLength(1), 
-      Validators.maxLength(100000)
+      Validators.pattern("[0-9]{1,10}")
       ]]
     });
   }
@@ -103,7 +102,7 @@ export class EmpresasComponent implements OnInit {
 
   Grabar() {
     this.submitted = true;
-    
+
     // verificar que los validadores esten OK
     if (this.FormReg.invalid) {
       return;

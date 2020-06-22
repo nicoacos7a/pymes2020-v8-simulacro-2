@@ -72,7 +72,7 @@
           Dato requerido.
       </span>
       <span class="text-danger" *ngIf="(FormReg.controls.RazonSocial.touched || submitted) 
-        && (FormReg.controls.RazonSocial.errors?.minlength || FormReg.controls.RazonSocial.errors?.maxlength) ">
+        && (FormReg.controls.RazonSocial.errors?.minlength || FormReg.controls.RazonSocial.errors?.maxlength)">
           Dato texto, 4 a 55 caracteres.
       </span>
     </div>
@@ -86,7 +86,6 @@
       <div class="col-sm-6">
         <input class="form-control" name="FechaFundacion" formControlName="FechaFundacion" [ngClass]="{'is-invalid': (FormReg.controls.FechaFundacion.touched || submitted)  
           && FormReg.controls.FechaFundacion.errors}" />
-
 				<span class="text-danger" *ngIf="(FormReg.controls.FechaFundacion.touched || submitted) 
           && FormReg.controls.FechaFundacion.errors?.required">
             Dato requerido.
@@ -94,7 +93,7 @@
 				<span class="text-danger" *ngIf="(FormReg.controls.FechaFundacion.touched || submitted) 
           && FormReg.controls.FechaFundacion.errors?.pattern">
             Dato fecha, formato dd/mm/aaaa.
-        </span>/>
+        </span>
       </div>
     </div>
 
@@ -104,7 +103,16 @@
         CantidadEmpleados <span class="text-danger">*</span>
       </label>
       <div class="col-sm-6">
-        <input type="text" name="CantidadEmpleados" class="form-control" formControlName="CantidadEmpleados"/>
+        <input type="text" name="CantidadEmpleados" class="form-control" formControlName="CantidadEmpleados" [ngClass]="{'is-invalid': (FormReg.controls.Stock.touched || submitted)  
+          && FormReg.controls.Stock.errors}" />
+				<span class="text-danger" *ngIf="(FormReg.controls.Stock.touched || submitted) 
+          && FormReg.controls.Stock.errors?.required">
+            Dato requerido.
+        </span>
+				<span class="text-danger" *ngIf="(FormReg.controls.Stock.touched || submitted) 
+          && FormReg.controls.Stock.errors?.pattern">
+            Dato numérico, 1 a  dígitos.
+        </span>
       </div>
     </div>
   </fieldset>
