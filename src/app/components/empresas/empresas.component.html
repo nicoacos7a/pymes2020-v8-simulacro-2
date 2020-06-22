@@ -42,48 +42,49 @@
 
 <!-- Registro en Alta,Modificacion o Consulta -->
 <form name='FormReg' [formGroup]='FormReg' *ngIf="AccionABMC != 'L'" class="bg-light">
-    <fieldset [disabled]="AccionABMC==='C'"> 
-
-        <!--IdEmpresa-->
-        <div class="form-group row">
-            <label class="col-form-label col-sm-2 col-sm-offset-2" for="IdEmpresa">
-                IdEmpresa <span class="text-danger">*</span>
-            </label>
-            <div class="col-sm-6">
-                <input type="text" name="IdEmpresa" class="form-control" formControlName="IdEmpresa"/>
-            </div>
+  
+  <fieldset [disabled]="AccionABMC==='C'"> 
+    
+    <!--IdEmpresa-->
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2 col-sm-offset-2" for="IdEmpresa">
+        IdEmpresa <span class="text-danger">*</span>
+      </label>
+      <div class="col-sm-6">
+        <input type="text" name="IdEmpresa" class="form-control" formControlName="IdEmpresa"/>
         </div>
+    </div>
 
-        <!--RazonSocial-->
-        <div class="form-group row">
-            <label class="col-form-label col-sm-2 col-sm-offset-2" for="RazonSocial">
-                RazonSocial <span class="text-danger">*</span>
-            </label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" formControlName="RazonSocial"/>
-            </div>
-        </div>
+    <!--RazonSocial-->
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2 col-sm-offset-2" for="RazonSocial">
+        RazonSocial <span class="text-danger">*</span>
+      </label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" formControlName="RazonSocial"/>
+      </div>
+    </div>
 
-        <!--FechaFundacion-->
-        <div class="form-group row">
-            <label class="col-form-label col-sm-2 col-sm-offset-2">
-                FechaFundacion <span class="text-danger">*</span>
-            </label>
-            <div class="col-sm-6">
-                <input class="form-control" name="FechaFundacion" formControlName="FechaFundacion"/>
-            </div>
-        </div>
+    <!--FechaFundacion-->
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2 col-sm-offset-2">
+        FechaFundacion <span class="text-danger">*</span>
+      </label>
+      <div class="col-sm-6">
+        <input class="form-control" name="FechaFundacion" formControlName="FechaFundacion"/>
+      </div>
+    </div>
 
-        <!--CantidadEmpleados-->
-        <div class="form-group row">
-            <label class="col-form-label col-sm-2 col-sm-offset-2" for="CantidadEmpleados">
-                CantidadEmpleados <span class="text-danger">*</span>
-            </label>
-            <div class="col-sm-6">
-                <input type="text" name="CantidadEmpleados" class="form-control" formControlName="CantidadEmpleados"/>
-            </div>
-        </div>
-    </fieldset>
+    <!--CantidadEmpleados-->
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2 col-sm-offset-2" for="CantidadEmpleados">
+        CantidadEmpleados <span class="text-danger">*</span>
+      </label>
+      <div class="col-sm-6">
+        <input type="text" name="CantidadEmpleados" class="form-control" formControlName="CantidadEmpleados"/>
+      </div>
+    </div>
+  </fieldset>
 
     <!-- Botones Grabar, Cancelar/Volver' -->
     <div class="row justify-content-center">
