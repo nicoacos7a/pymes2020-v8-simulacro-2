@@ -60,11 +60,21 @@
     <!--RazonSocial-->
     <div class="form-group row">
       <label class="col-form-label col-sm-2 col-sm-offset-2" for="RazonSocial">
-        RazonSocial <span class="text-danger">*</span>
+        RazonSocial 
+        <span class="text-danger">*</span>
       </label>
       <div class="col-sm-6">
-        <input type="text" class="form-control" formControlName="RazonSocial"/>
+        <input type="text" class="form-control" formControlName="RazonSocial" [ngClass]="{'is-invalid': (FormReg.controls.Nombre.touched || submitted)  
+            && FormReg.controls.Nombre.errors}" />
       </div>
+      <span class="text-danger" *ngIf="(FormReg.controls.Nombre.touched || submitted) 
+        && FormReg.controls.Nombre.errors?.required">
+          Dato requerido.
+      </span>
+      <span class="text-danger" *ngIf="(FormReg.controls.Nombre.touched || submitted) 
+        && (FormReg.controls.Nombre.errors?.minlength || FormReg.controls.Nombre.errors?.maxlength) ">
+          Dato texto, 4 a 55 caracteres.
+      </span>
     </div>
 
     <!--FechaFundacion-->

@@ -100,8 +100,9 @@
 	<fieldset [disabled]="AccionABMC==='C'">
 		<!--campo nombre-->
 		<div class="form-group row">
-			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Nombre">Nombre <span
-                    class="text-danger">*</span></label>
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Nombre">
+        Nombre 
+        <span class="text-danger">*</span></label>
 			<div class="col-sm-6">
 				<input type="text" class="form-control" formControlName="Nombre" 
          [ngClass]="{'is-invalid': (FormReg.controls.Nombre.touched || submitted)  
