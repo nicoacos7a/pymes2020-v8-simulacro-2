@@ -39,7 +39,7 @@ export class EmpresasComponent implements OnInit {
     this.Buscar()
 
     this.FormReg = this.formBuilder.group({
-    IdEmpresa: [null],
+    IdEmpresa: [0],
 
     RazonSocial: [null, [
       Validators.required, 
