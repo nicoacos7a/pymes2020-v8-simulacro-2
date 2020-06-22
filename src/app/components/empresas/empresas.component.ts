@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Empresa } from "../../models/empresa";
 import { EmpresasService } from "../../services/empresas.service";
-import { FormBuilder, FormGroup, Validators, FormsModule } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-empresas',
@@ -77,8 +77,8 @@ export class EmpresasComponent implements OnInit {
   }
 
   BuscarPorId(emp, AccionABMC) {
-    window.scroll(0, 0); // ir al incio del scroll
-    
+    window.scroll(0, 0);
+
     this.empresasService.getById(emp.IdEmpresa).subscribe((res: any) => {
       this.FormReg.patchValue(res);
 
@@ -144,5 +144,4 @@ export class EmpresasComponent implements OnInit {
       this.Buscar();
     });
   }
-
 }
