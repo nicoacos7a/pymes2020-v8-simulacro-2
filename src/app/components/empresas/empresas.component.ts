@@ -78,7 +78,7 @@ export class EmpresasComponent implements OnInit {
 
   BuscarPorId(emp, AccionABMC) {
     window.scroll(0, 0); // ir al incio del scroll
-
+    
     this.empresasService.getById(emp.IdEmpresa).subscribe((res: any) => {
       this.FormReg.patchValue(res);
 
