@@ -66,15 +66,15 @@
       <div class="col-sm-6">
         <input type="text" class="form-control" formControlName="RazonSocial" [ngClass]="{'is-invalid': (FormReg.controls.RazonSocial.touched || submitted)  
             && FormReg.controls.RazonSocial.errors}" />
+        <span class="text-danger" *ngIf="(FormReg.controls.RazonSocial.touched || submitted) 
+          && FormReg.controls.RazonSocial.errors?.required">
+            Dato requerido.
+        </span>
+        <span class="text-danger" *ngIf="(FormReg.controls.RazonSocial.touched || submitted) 
+          && (FormReg.controls.RazonSocial.errors?.minlength || FormReg.controls.RazonSocial.errors?.maxlength)">
+            Dato texto, 4 a 55 caracteres.
+        </span>
       </div>
-      <span class="text-danger" *ngIf="(FormReg.controls.RazonSocial.touched || submitted) 
-        && FormReg.controls.RazonSocial.errors?.required">
-          Dato requerido.
-      </span>
-      <span class="text-danger" *ngIf="(FormReg.controls.RazonSocial.touched || submitted) 
-        && (FormReg.controls.RazonSocial.errors?.minlength || FormReg.controls.RazonSocial.errors?.maxlength)">
-          Dato texto, 4 a 55 caracteres.
-      </span>
     </div>
 
     <!--FechaFundacion-->
@@ -110,7 +110,7 @@
             Dato requerido.
         </span>
 				<span class="text-danger" *ngIf="(FormReg.controls.CantidadEmpleados.touched || submitted) 
-          && FormReg.controls.Stock.errors?.pattern">
+          && FormReg.controls.CantidadEmpleados.errors?.pattern">
             Dato numérico, 1 a 10 dígitos.
         </span>
       </div>
