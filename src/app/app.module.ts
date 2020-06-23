@@ -45,7 +45,6 @@ import { EmpresasService } from './services/empresas.service';
     ]),
     NgbPaginationModule,
     NgbModalModule
-    // FormsModule,
   ],
   entryComponents: [ModalDialogComponent],
   providers: [
