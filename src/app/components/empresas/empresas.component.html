@@ -53,10 +53,10 @@
         IdEmpresa <span class="text-danger">*</span>
       </label>
       <div class="col-sm-6">
-        <input type="text" name="IdEmpresa" class="form-control" formControlName="IdEmpresa" [ngClass]="{'is-invalid': (FormReg.controls.RazonSocial.touched || submitted)  
-            && FormReg.controls.RazonSocial.errors}" />
-        <span class="text-danger" *ngIf="(FormReg.controls.RazonSocial.touched || submitted) 
-          && FormReg.controls.RazonSocial.errors?.required">
+        <input type="text" name="IdEmpresa" class="form-control" formControlName="IdEmpresa" [ngClass]="{'is-invalid': (FormReg.controls.IdEmpresa.touched || submitted)  
+            && FormReg.controls.IdEmpresa.errors}" />
+        <span class="text-danger" *ngIf="(FormReg.controls.IdEmpresa.touched || submitted) 
+          && FormReg.controls.IdEmpresa.errors?.required">
             Dato requerido.
         </span>
         </div>
