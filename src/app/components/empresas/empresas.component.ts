@@ -39,23 +39,24 @@ export class EmpresasComponent implements OnInit {
     this.Buscar()
 
     this.FormReg = this.formBuilder.group({
+
+      IdEmpresa: [0],
+      // IdEmpresa: [null, [Validators.required]],
       
-    IdEmpresa: [null, [Validators.required]],
-
-    RazonSocial: [null, [
-      Validators.required, 
-      Validators.minLength(3), 
-      Validators.maxLength(50)
+      RazonSocial: [null, [
+        Validators.required, 
+        Validators.minLength(3), 
+        Validators.maxLength(50)
       ]],
 
-    FechaFundacion: [null, [
-      Validators.required,
-      Validators.pattern("(0[1-9]|[12][0-9]|3[01])[-/](0[1-9]|1[012])[-/](19|20)[0-9]{2}")
+      FechaFundacion: [null, [
+        Validators.required,
+        Validators.pattern("(0[1-9]|[12][0-9]|3[01])[-/](0[1-9]|1[012])[-/](19|20)[0-9]{2}")
       ]],
 
-    CantidadEmpleados: [null, [
-      Validators.required, 
-      Validators.pattern("[0-9]{1,10}")
+      CantidadEmpleados: [null, [
+        Validators.required, 
+        Validators.pattern("[0-9]{1,10}")
       ]]
     });
   }
