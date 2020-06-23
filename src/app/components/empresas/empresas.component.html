@@ -55,6 +55,10 @@
       <div class="col-sm-6">
         <input type="text" name="IdEmpresa" class="form-control" formControlName="IdEmpresa" [ngClass]="{'is-invalid': (FormReg.controls.RazonSocial.touched || submitted)  
             && FormReg.controls.RazonSocial.errors}" />
+        <span class="text-danger" *ngIf="(FormReg.controls.RazonSocial.touched || submitted) 
+          && FormReg.controls.RazonSocial.errors?.required">
+            Dato requerido.
+        </span>
         </div>
     </div>
 
