@@ -47,21 +47,6 @@
 <form name="FormReg" [formGroup]='FormReg' *ngIf="AccionABMC != 'L'" class="bg-light">
 	<fieldset [disabled]="AccionABMC==='C'">
     
-    <!--IdEmpresa-->
-    <!-- <div class="form-group row">
-      <label class="col-form-label col-sm-2 col-sm-offset-2" for="IdEmpresa">
-        IdEmpresa <span class="text-danger">*</span>
-      </label>
-      <div class="col-sm-6">
-        <input type="text" name="IdEmpresa" class="form-control" formControlName="IdEmpresa" [ngClass]="{'is-invalid': (FormReg.controls.IdEmpresa.touched || submitted)  
-            && FormReg.controls.IdEmpresa.errors}" />
-        <span class="text-danger" *ngIf="(FormReg.controls.IdEmpresa.touched || submitted) 
-          && FormReg.controls.IdEmpresa.errors?.required">
-            Dato requerido.
-        </span>
-        </div>
-    </div> -->
-
     <!--RazonSocial-->
     <div class="form-group row">
       <label class="col-form-label col-sm-2 col-sm-offset-2" for="RazonSocial">
