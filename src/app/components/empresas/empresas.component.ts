@@ -41,7 +41,6 @@ export class EmpresasComponent implements OnInit {
     this.FormReg = this.formBuilder.group({
 
       IdEmpresa: [0],
-      // IdEmpresa: [null, [Validators.required]],
       
       RazonSocial: [null, [
         Validators.required, 
