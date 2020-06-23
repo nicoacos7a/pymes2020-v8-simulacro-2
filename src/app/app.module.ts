@@ -4,7 +4,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF} from '@angular/common';  
 import { ReactiveFormsModule } from "@angular/forms";
-// import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MyInterceptor } from "./shared/my-interceptor";
